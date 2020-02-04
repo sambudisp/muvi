@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.sambudisp.muvi.BuildConfig
 import com.sambudisp.muvi.MuviApp
 import com.sambudisp.muvi.model.response.MovieResponse
 import com.sambudisp.muvi.model.response.MovieResponseResult
@@ -15,7 +16,7 @@ import kotlin.collections.ArrayList
 
 class MovieViewModel : ViewModel() {
     companion object {
-        private const val API_KEY = "79adf9839ac69fcd9a49792c1d0bafc7"
+        private const val API_KEY = BuildConfig.API_KEY
     }
 
     val listMovie = MutableLiveData<ArrayList<MovieResponseResult>>()

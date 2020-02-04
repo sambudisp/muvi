@@ -1,9 +1,11 @@
 package com.sambudisp.muvi.viewModel
 
+import android.os.Build
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.sambudisp.muvi.BuildConfig
 import com.sambudisp.muvi.MuviApp
 import com.sambudisp.muvi.model.response.MovieDetailResponse
 import com.sambudisp.muvi.model.response.TvDetailResponse
@@ -14,7 +16,7 @@ import java.util.*
 
 class ContentDetailViewModel : ViewModel() {
     companion object {
-        private const val API_KEY = "79adf9839ac69fcd9a49792c1d0bafc7"
+        private const val API_KEY = BuildConfig.API_KEY
     }
 
     val detailTv = MutableLiveData<TvDetailResponse>()
