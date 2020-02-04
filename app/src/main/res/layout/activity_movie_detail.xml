@@ -11,6 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ProgressBar
+            android:id="@+id/pb_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/img_poster"
+            app:layout_constraintBottom_toBottomOf="@id/img_poster"/>
+
         <ImageView
             android:id="@+id/img_poster"
             android:layout_width="match_parent"
@@ -31,7 +41,7 @@
             android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="@id/cv_movie_detail"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_play_arrow_white_24dp" />
+            app:srcCompat="@drawable/ic_open_in_browser_black_24dp" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_movie_detail"
@@ -88,6 +98,18 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_title"
                     tools:text="@string/restricted_rate" />
 
+                <TextView
+                    android:id="@+id/tv_season_episode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    android:gravity="start|center_vertical"
+                    app:layout_constraintEnd_toEndOf="@id/tv_title"
+                    app:layout_constraintStart_toEndOf="@id/img_star_rate"
+                    app:layout_constraintTop_toBottomOf="@id/tv_rate" />
+
                 <View
                     android:id="@+id/div_movie_detail_1"
                     android:layout_width="match_parent"
@@ -98,7 +120,7 @@
                     android:background="@android:color/darker_gray"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_rate" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_season_episode" />
 
                 <TextView
                     android:id="@+id/tv_category"
@@ -132,7 +154,7 @@
                     android:background="@color/colorAccent"
                     android:gravity="center"
                     android:padding="16dp"
-                    android:text="Pesan"
+                    android:text="@string/order"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"

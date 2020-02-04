@@ -2,7 +2,6 @@ package com.sambudisp.muvi.fragment
 
 
 import android.content.Intent
-import android.content.res.TypedArray
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,11 +11,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sambudisp.muvi.activity.ContentDetailActivity
-import com.sambudisp.muvi.ContentModel
 import com.sambudisp.muvi.R
-import com.sambudisp.muvi.model.response.MovieResponseResult
+import com.sambudisp.muvi.adapter.TvListListener
+import com.sambudisp.muvi.adapter.TvShowListAdapter
 import com.sambudisp.muvi.model.response.TVResponseResult
-import com.sambudisp.muvi.viewModel.MovieViewModel
 import com.sambudisp.muvi.viewModel.TvViewModel
 import kotlinx.android.synthetic.main.fragment_tv_show.*
 
@@ -39,11 +37,13 @@ class TvShowFragment : Fragment(), TvListListener {
         setupRecylerView()
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(TvViewModel::class.java)
-        viewModel.setListMovie()
+        viewModel.setListTv()
+        isLoading(true)
 
-        viewModel.getListMovie().observe(this, Observer {
+        viewModel.getListTv().observe(this, Observer {
             if (it != null){
                 tvAdapter.setData(it)
+                isLoading(false)
             }
         })
     }
@@ -56,9 +56,22 @@ class TvShowFragment : Fragment(), TvListListener {
     }
 
     override fun onClick(tv: TVResponseResult) {
+        val bundle = Bundle()
+        bundle.putString(ContentDetailActivity.EXTRA_DATA, tv.id)
+        bundle.putString(ContentDetailActivity.EXTRA_TYPE, "tv")
         val intent = Intent(context, ContentDetailActivity::class.java)
-        intent.putExtra(ContentDetailActivity.EXTRA_DATA, tv)
+        intent.putExtras(bundle)
         startActivity(intent)
+    }
+
+    private fun isLoading(state: Boolean) {
+        if (state) {
+            pb_tv.visibility = View.VISIBLE
+            rv_tv_show_list.visibility = View.GONE
+        } else {
+            pb_tv.visibility = View.GONE
+            rv_tv_show_list.visibility = View.VISIBLE
+        }
     }
 
 }

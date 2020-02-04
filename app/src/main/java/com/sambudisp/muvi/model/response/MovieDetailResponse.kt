@@ -27,28 +27,13 @@ data class MovieDetailResponse(
     @field:SerializedName("release_date")
     val release_date: String? = null,
 
-    @field:SerializedName("genres")
-    val genres: ArrayList<MovieGenres>,
+    @field:SerializedName("homepage")
+    val homepage: String? = null,
 
-    @field:SerializedName("production_companies")
-    val production_companies: ArrayList<MovieProductionCompanies>
-) : Parcelable
+    //Perbedaan data
+    @field:SerializedName("number_of_episodes")
+    val number_of_episodes: String? = null,
 
-
-@Parcelize
-data class MovieGenres(
-    @field:SerializedName("id")
-    val id: String? = null,
-
-    @field:SerializedName("name")
-    val name: String? = null
-) : Parcelable
-
-@Parcelize
-data class MovieProductionCompanies(
-    @field:SerializedName("id")
-    val id: String? = null,
-
-    @field:SerializedName("name")
-    val name: String? = null
+    @field:SerializedName("number_of_seasons")
+    val number_of_seasons: String? = null
 ) : Parcelable

@@ -10,19 +10,21 @@ import com.sambudisp.muvi.model.response.MovieResponseResult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MovieViewModel : ViewModel() {
     companion object {
         private const val API_KEY = "79adf9839ac69fcd9a49792c1d0bafc7"
-        private const val LANGUAGE_ID = "id-ID"
-        private const val LANGUAGE_EN = "en-US"
     }
 
     val listMovie = MutableLiveData<ArrayList<MovieResponseResult>>()
+    private var language = "id-ID"
 
     internal fun setListMovie() {
+        if (Locale.getDefault().displayLanguage.toString() != "Indonesia") language = "en-US"
         MuviApp.apiService
-            .movie(API_KEY, LANGUAGE_ID)
+            .movie(API_KEY, language)
             .enqueue(object : Callback<MovieResponse> {
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
                     Log.d("onFailure", t.message.toString())

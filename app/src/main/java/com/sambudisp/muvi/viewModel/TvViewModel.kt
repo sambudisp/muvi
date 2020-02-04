@@ -22,7 +22,7 @@ class TvViewModel : ViewModel() {
 
     val listTv = MutableLiveData<ArrayList<TVResponseResult>>()
 
-    internal fun setListMovie() {
+    internal fun setListTv() {
         MuviApp.apiService
             .tv(API_KEY, LANGUAGE_ID)
             .enqueue(object : Callback<TvResponse> {
@@ -54,7 +54,7 @@ class TvViewModel : ViewModel() {
             })
     }
 
-    internal fun getListMovie(): LiveData<ArrayList<TVResponseResult>> {
+    internal fun getListTv(): LiveData<ArrayList<TVResponseResult>> {
         return listTv
     }
 }

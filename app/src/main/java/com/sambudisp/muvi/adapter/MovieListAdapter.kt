@@ -1,4 +1,4 @@
-package com.sambudisp.muvi.fragment
+package com.sambudisp.muvi.adapter
 
 import android.view.LayoutInflater
 import android.view.View
