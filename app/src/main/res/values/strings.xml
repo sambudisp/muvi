@@ -10,10 +10,12 @@
     <string name="tab_movie">Film</string>
     <string name="tab_tv_show">Serial TV</string>
     <string name="tv_show">Serial TV</string>
+    <string name="movie_cinema">Film Bioskop</string>
     <string name="movie">Film</string>
     <string name="order">Beli</string>
     <string name="setting_language">Pengaturan Bahasa</string>
     <string name="main_title">Muvi - Temukan Film Favoritmu</string>
+    <string name="null_desc">Sebuah serial TV menarik yang akan membawamu ke dalam cerita yang dalam. Seri ini sudah mencapai season 7 dengan 30 episode di setiap seasonnya</string>
 
     <string-array name="data_video_movie">
         <item>https://www.youtube.com/watch?v=nSbzyEJ8X9E</item>

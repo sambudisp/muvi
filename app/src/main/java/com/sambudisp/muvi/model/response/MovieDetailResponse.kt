@@ -28,10 +28,10 @@ data class MovieDetailResponse(
     val release_date: String? = null,
 
     @field:SerializedName("genres")
-    val genres: MutableList<MovieGenres>,
+    val genres: ArrayList<MovieGenres>,
 
     @field:SerializedName("production_companies")
-    val production_companies: MutableList<MovieProductionCompanies>
+    val production_companies: ArrayList<MovieProductionCompanies>
 ) : Parcelable
 
 

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sambudisp.muvi">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MuviApp"
         android:allowBackup="true"
@@ -11,8 +13,8 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ContentDetailActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.ContentDetailActivity"></activity>
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

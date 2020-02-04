@@ -1,4 +1,4 @@
-package com.sambudisp.muvi.sub2
+package com.sambudisp.muvi.fragment
 
 import android.content.Context
 import androidx.annotation.Nullable

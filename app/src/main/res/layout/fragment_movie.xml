@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".sub2.MovieFragment">
+    tools:context=".fragment.MovieFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movie_list"

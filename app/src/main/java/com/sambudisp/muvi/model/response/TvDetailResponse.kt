@@ -28,10 +28,10 @@ data class TvDetailResponse(
     val release_date: String? = null,
 
     @field:SerializedName("genres")
-    val genres: MutableList<TvGenres>,
+    val genres: ArrayList<TvGenres>,
 
     @field:SerializedName("production_companies")
-    val production_companies: MutableList<TvProductionCompanies>,
+    val production_companies: ArrayList<TvProductionCompanies>,
 
     //Perbedaan data
     @field:SerializedName("number_of_episodes")

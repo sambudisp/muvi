@@ -10,10 +10,12 @@
     <string name="tab_movie">Movie</string>
     <string name="tab_tv_show">TV Show</string>
     <string name="tv_show">TV Show</string>
+    <string name="movie_cinema">Movie</string>
     <string name="movie">Movie</string>
     <string name="order">Order</string>
     <string name="setting_language">Language Setting</string>
     <string name="main_title">Muvi - Find Your Fav Show</string>
+    <string name="null_desc">This is an attractive TV Series that will bring your into the story. This serie has 7 seasons with 30 episodes in every season.</string>
 
     <string-array name="data_video_movie">
         <item>https://www.youtube.com/watch?v=nSbzyEJ8X9E</item>

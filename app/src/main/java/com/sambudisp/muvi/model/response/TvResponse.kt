@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class TvResponse(
     @field:SerializedName("results")
-    val results: MutableList<TVResponseResult>
+    val results: ArrayList<TVResponseResult>
 ) : Parcelable
 
 @Parcelize
@@ -27,6 +27,6 @@ data class TVResponseResult(
     @field:SerializedName("overview")
     val overview : String? = null,
 
-    @field:SerializedName("release_date")
+    @field:SerializedName("first_air_date")
     val release_date : String? = null
 ) : Parcelable

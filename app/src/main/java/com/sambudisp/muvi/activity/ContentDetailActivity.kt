@@ -1,4 +1,4 @@
-package com.sambudisp.muvi
+package com.sambudisp.muvi.activity
 
 import android.content.Intent
 import android.net.Uri
@@ -8,6 +8,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.sambudisp.muvi.ContentModel
+import com.sambudisp.muvi.R
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 
 class ContentDetailActivity : AppCompatActivity() {
