@@ -1,4 +1,4 @@
-package com.sambudisp.muvi.sub2
+package com.sambudisp.muvi.sub
 
 import android.view.LayoutInflater
 import android.view.View

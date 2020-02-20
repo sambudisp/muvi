@@ -1,5 +1,4 @@
-package com.sambudisp.muvi.sub2
-
+package com.sambudisp.muvi.sub
 
 import android.content.Intent
 import android.content.res.TypedArray
@@ -12,12 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sambudisp.muvi.ContentDetailActivity
 import com.sambudisp.muvi.ContentModel
 import com.sambudisp.muvi.R
-import kotlinx.android.synthetic.main.fragment_tv_show.*
+import kotlinx.android.synthetic.main.fragment_movie.*
 
-class TvShowFragment : Fragment(), OnTvShowClick {
+class MovieFragment : Fragment(), OnMovieListClick {
 
     private val listOfMovie = arrayListOf<ContentModel>()
-    private val movieAdapter = TvShowListAdapter(listOfMovie, this)
+    private val movieAdapter = MovieListAdapter(listOfMovie, this)
 
     private lateinit var dataTitle: Array<String>
     private lateinit var dataDescription: Array<String>
@@ -33,7 +32,7 @@ class TvShowFragment : Fragment(), OnTvShowClick {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_tv_show, container, false)
+        return inflater.inflate(R.layout.fragment_movie, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +44,7 @@ class TvShowFragment : Fragment(), OnTvShowClick {
     }
 
     private fun setupRecylerView() {
-        rv_tv_show_list?.apply {
+        rv_movie_list?.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = movieAdapter
         }
@@ -63,7 +62,7 @@ class TvShowFragment : Fragment(), OnTvShowClick {
                 dataIsPromo[position].toBoolean(),
                 dataCateogry[position],
                 dataVideo[position],
-                getString(R.string.tv_show)
+                getString(R.string.movie)
             )
             listOfMovie.add(movie)
         }
@@ -71,20 +70,21 @@ class TvShowFragment : Fragment(), OnTvShowClick {
     }
 
     private fun prepareData() {
-        dataPoster = resources.obtainTypedArray(R.array.data_poster_tv)
-        dataTitle = resources.getStringArray(R.array.data_title_tv)
-        dataDescription = resources.getStringArray(R.array.data_description_tv)
-        dataRate = resources.getStringArray(R.array.data_rate_tv)
-        dataRestriction = resources.getStringArray(R.array.data_restriction_tv)
-        dataPrice = resources.getStringArray(R.array.data_price_tv)
-        dataIsPromo = resources.getStringArray(R.array.data_is_promo_tv)
-        dataCateogry = resources.getStringArray(R.array.data_category_tv)
-        dataVideo = resources.getStringArray(R.array.data_video_tv)
+        dataPoster = resources.obtainTypedArray(R.array.data_poster_movie)
+        dataTitle = resources.getStringArray(R.array.data_title_movie)
+        dataDescription = resources.getStringArray(R.array.data_description_movie)
+        dataRate = resources.getStringArray(R.array.data_rate_movie)
+        dataRestriction = resources.getStringArray(R.array.data_restriction_movie)
+        dataPrice = resources.getStringArray(R.array.data_price_movie)
+        dataIsPromo = resources.getStringArray(R.array.data_is_promo_movie)
+        dataCateogry = resources.getStringArray(R.array.data_category_movie)
+        dataVideo = resources.getStringArray(R.array.data_video_movie)
     }
 
-    override fun onClick(tvShow: ContentModel) {
+    override fun onClick(movie: ContentModel) {
         val intent = Intent(context, ContentDetailActivity::class.java)
-        intent.putExtra(ContentDetailActivity.EXTRA_DATA, tvShow)
+        intent.putExtra(ContentDetailActivity.EXTRA_DATA, movie)
         startActivity(intent)
     }
+
 }
