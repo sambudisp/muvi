@@ -19,4 +19,17 @@
     <string name="err">Something Wrong</string>
     <string name="released_at">Released at :</string>
     <string name="season">Season</string>
+    <string name="date">Date</string>
+    <string name="delete">Delete</string>
+    <string name="title_fav">Favourite</string>
+    <string name="data_empty">Data is empty</string>
+    <string name="movie_has_been_saved_before">This movie has been saved before</string>
+    <string name="item_saved">Saved to Fav</string>
+    <string name="item_save_failed">Failed while saving to Fav</string>
+    <string name="item_save_catch">Something Wrong</string>
+    <string name="save_to_fav">Save to Fav</string>
+    <string name="saved_at">Saved at : </string>
+    <string name="item_deleted">Deleted</string>
+    <string name="item_delete_failed">Failed to Delete Item</string>
+
 </resources>

@@ -12,13 +12,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sambudisp.muvi.activity.ContentDetailActivity
 import com.sambudisp.muvi.R
+import com.sambudisp.muvi.adapter.TvFavListener
 import com.sambudisp.muvi.adapter.TvListListener
 import com.sambudisp.muvi.adapter.TvShowListAdapter
+import com.sambudisp.muvi.model.response.MovieResponseResult
 import com.sambudisp.muvi.model.response.TVResponseResult
 import com.sambudisp.muvi.viewModel.TvViewModel
 import kotlinx.android.synthetic.main.fragment_tv_show.*
 
-class TvShowFragment : Fragment(), TvListListener {
+class TvShowFragment : Fragment(), TvListListener, TvFavListener {
 
     private lateinit var tvAdapter: TvShowListAdapter
     private lateinit var viewModel: TvViewModel
@@ -32,7 +34,7 @@ class TvShowFragment : Fragment(), TvListListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tvAdapter = TvShowListAdapter(this)
+        tvAdapter = TvShowListAdapter(this, this)
         tvAdapter.notifyDataSetChanged()
         setupRecylerView()
 
@@ -46,6 +48,30 @@ class TvShowFragment : Fragment(), TvListListener {
                 isLoading(false)
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(TvViewModel::class.java)
+        viewModel.setListTv()
+        isLoading(true)
+
+        viewModel.getListTv().observe(this, Observer {
+            if (it != null){
+                tvAdapter.setData(it)
+                isLoading(false)
+            }
+        })
+    }
+
+    private fun isLoading(state: Boolean) {
+        if (state) {
+            pb_tv.visibility = View.VISIBLE
+            rv_tv_show_list.visibility = View.GONE
+        } else {
+            pb_tv.visibility = View.GONE
+            rv_tv_show_list.visibility = View.VISIBLE
+        }
     }
 
     private fun setupRecylerView() {
@@ -64,14 +90,8 @@ class TvShowFragment : Fragment(), TvListListener {
         startActivity(intent)
     }
 
-    private fun isLoading(state: Boolean) {
-        if (state) {
-            pb_tv.visibility = View.VISIBLE
-            rv_tv_show_list.visibility = View.GONE
-        } else {
-            pb_tv.visibility = View.GONE
-            rv_tv_show_list.visibility = View.VISIBLE
-        }
+    override fun onFavClick(movie: MovieResponseResult) {
+        //save id ke lokal db
     }
 
 }

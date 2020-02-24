@@ -8,17 +8,29 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.sambudisp.muvi.R
+import com.sambudisp.muvi.adapter.FavAdapter
+import com.sambudisp.muvi.database.helper.FavHelper
 import com.sambudisp.muvi.fragment.SectionsPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var favHelper: FavHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         setupView()
+
+        favHelper = FavHelper.getInstance(applicationContext)
+        //favHelper.open()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        favHelper.close()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -31,8 +43,16 @@ class MainActivity : AppCompatActivity() {
         if (id == R.id.tb_setting) {
             changeLanguage()
             return super.onOptionsItemSelected(item)
+        } else if (id == R.id.tb_fav){
+            goFavList()
+            return super.onOptionsItemSelected(item)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun goFavList() {
+        val intent = Intent(this, FavActivity::class.java)
+        startActivity(intent)
     }
 
     private fun changeLanguage() {

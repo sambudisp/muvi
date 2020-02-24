@@ -19,4 +19,16 @@
     <string name="err">Terjadi Kendala</string>
     <string name="released_at">Dirilis Pada :</string>
     <string name="season">Seri</string>
+    <string name="date">Tanggal</string>
+    <string name="delete">Hapus</string>
+    <string name="title_fav">Favorit</string>
+    <string name="data_empty">Tidak ada data saat ini</string>
+    <string name="movie_has_been_saved_before">Film ini sudah pernah disimpan ke favorit sebelumnya</string>
+    <string name="item_saved">Berhasil menyimpan ke Favorit</string>
+    <string name="item_save_failed">Gagal menyimpan ke Favorit</string>
+    <string name="item_save_catch">Terjadi kendala</string>
+    <string name="save_to_fav">Simpan ke Favorit</string>
+    <string name="saved_at">Disimpan pada : </string>
+    <string name="item_deleted">Dihapus</string>
+    <string name="item_delete_failed">Gagal menghapus item</string>
 </resources>

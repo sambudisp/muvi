@@ -55,6 +55,10 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.3.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
 
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
+
     implementation 'com.squareup.picasso:picasso:2.71828'
 
 }

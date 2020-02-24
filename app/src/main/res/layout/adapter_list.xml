@@ -12,7 +12,6 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="22dp"
-        android:layout_marginBottom="6dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,19 +24,19 @@
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:paddingStart="0dp"
-            android:paddingEnd="8dp">
+            android:paddingEnd="0dp">
 
             <TextView
                 android:id="@+id/tv_item_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Film Bioskop"
                 android:background="@drawable/bg_label_red"
                 android:padding="6dp"
-                android:textSize="12sp"
                 android:textColor="@android:color/white"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/btn_detail"
                 app:layout_constraintTop_toTopOf="@id/img_poster"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                tools:text="Film Bioskop" />
 
             <ImageView
                 android:id="@+id/img_poster"
@@ -46,7 +45,7 @@
                 android:contentDescription="@string/poster"
                 android:elevation="6dp"
                 android:scaleType="fitStart"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/btn_save_to_fav"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/poster_avengerinfinity" />
@@ -56,11 +55,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="6dp"
                 android:gravity="start"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tv_item_category"
                 app:layout_constraintStart_toEndOf="@id/img_poster"
                 app:layout_constraintTop_toBottomOf="@id/tv_item_category"
                 tools:text="@string/title" />
@@ -70,6 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@id/tv_restriction"
                 app:layout_constraintStart_toEndOf="@id/img_poster"
                 app:layout_constraintTop_toTopOf="@id/tv_restriction"
@@ -81,8 +81,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@id/tv_item_category"
                 android:gravity="start|center_vertical"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/img_star_rate"
                 app:layout_constraintTop_toBottomOf="@id/tv_title"
                 tools:text="@string/restricted_rate" />
@@ -92,9 +92,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@id/tv_item_category"
                 android:gravity="start"
                 android:textColor="@android:color/holo_red_dark"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tv_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_restriction"
                 tools:text="@string/action" />
@@ -106,7 +106,7 @@
                 android:layout_marginTop="8dp"
                 android:ellipsize="end"
                 android:maxLines="4"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tv_item_category"
                 app:layout_constraintStart_toStartOf="@id/tv_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_category"
                 tools:text="@string/lorem_ipsum" />
@@ -119,12 +119,27 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_button"
                 android:text="@string/detail"
+                android:layout_marginEnd="6dp"
+                android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_description" />
 
+            <Button
+                android:id="@+id/btn_save_to_fav"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_button_dark"
+                android:text="@string/save_to_fav"
+                android:textAllCaps="false"
+                android:layout_marginTop="6dp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_detail"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
