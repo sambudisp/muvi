@@ -31,4 +31,10 @@
     <string name="saved_at">Disimpan pada : </string>
     <string name="item_deleted">Dihapus</string>
     <string name="item_delete_failed">Gagal menghapus item</string>
+
+    <string name="tab_fav_movie">Film Fav</string>
+    <string name="tab_fav_tv_show">Serial TV Fav</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

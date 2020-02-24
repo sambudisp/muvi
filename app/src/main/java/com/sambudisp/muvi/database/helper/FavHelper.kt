@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
+import com.sambudisp.muvi.database.DatabaseContract.FavColumns.Companion.CATEGORY
 import com.sambudisp.muvi.database.DatabaseContract.FavColumns.Companion.ID_FAV
 import com.sambudisp.muvi.database.DatabaseContract.FavColumns.Companion.TABLE_NAME
 import com.sambudisp.muvi.database.DatabaseContract.FavColumns.Companion._ID
@@ -54,6 +55,19 @@ class FavHelper(context: Context) {
             null,
             null,
             "$_ID ASC"
+        )
+    }
+
+    fun queryByCategory(category : String): Cursor {
+        return database.query(
+            DATABASE_TABLE,
+            null,
+            "$CATEGORY = ?",
+            arrayOf(category),
+            null,
+            null,
+            null,
+            null
         )
     }
 

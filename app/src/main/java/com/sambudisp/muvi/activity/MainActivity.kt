@@ -3,16 +3,13 @@ package com.sambudisp.muvi.activity
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.sambudisp.muvi.R
-import com.sambudisp.muvi.adapter.FavAdapter
 import com.sambudisp.muvi.database.helper.FavHelper
 import com.sambudisp.muvi.fragment.SectionsPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         if (id == R.id.tb_setting) {
             changeLanguage()
             return super.onOptionsItemSelected(item)
-        } else if (id == R.id.tb_fav){
+        } else if (id == R.id.tb_fav) {
             goFavList()
             return super.onOptionsItemSelected(item)
         }

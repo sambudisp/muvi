@@ -17,7 +17,6 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_fav.view.*
 
 class FavAdapter(
-    private val activity: Activity,
     private val listener: DeletedListener) :
     RecyclerView.Adapter<FavAdapter.NoteViewHolder>() {
 

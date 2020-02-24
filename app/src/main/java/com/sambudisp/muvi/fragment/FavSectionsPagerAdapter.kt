@@ -8,16 +8,19 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.sambudisp.muvi.R
 
-class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class FavSectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
+    FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     @StringRes
-    private val TAB_TITLES = intArrayOf(R.string.tab_movie, R.string.tab_tv_show)
+    private val TAB_TITLES = intArrayOf(
+        R.string.tab_fav_movie,
+        R.string.tab_fav_tv_show)
 
     override fun getItem(position: Int): Fragment {
         var fragment: Fragment? = null
         when (position) {
-            0 -> fragment = MovieFragment()
-            1 -> fragment = TvShowFragment()
+            0 -> fragment = FavMovieFragment()
+            1 -> fragment = FavTvShowFragment()
         }
         return fragment as Fragment
     }

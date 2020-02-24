@@ -32,4 +32,7 @@
     <string name="item_deleted">Deleted</string>
     <string name="item_delete_failed">Failed to Delete Item</string>
 
+    <string name="tab_fav_movie">Fav Movie</string>
+    <string name="tab_fav_tv_show">Fav TV Series</string>
+
 </resources>

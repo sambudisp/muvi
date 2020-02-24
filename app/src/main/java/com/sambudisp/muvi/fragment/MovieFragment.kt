@@ -15,7 +15,6 @@ import com.sambudisp.muvi.activity.ContentDetailActivity
 import com.sambudisp.muvi.adapter.MovieFavListener
 import com.sambudisp.muvi.adapter.MovieListAdapter
 import com.sambudisp.muvi.adapter.MovieListListener
-import com.sambudisp.muvi.database.helper.FavHelper
 import com.sambudisp.muvi.model.response.MovieResponseResult
 import com.sambudisp.muvi.viewModel.MovieViewModel
 import kotlinx.android.synthetic.main.fragment_movie.*

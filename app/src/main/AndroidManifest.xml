@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.FavActivity"></activity>
+        <activity android:name=".activity.FavsActivity"></activity>
+        <activity android:name=".activity.FavActivity" />
         <activity android:name=".activity.SavedFavActivity" />
         <activity android:name=".activity.ContentDetailActivity" />
         <activity android:name=".activity.MainActivity">
