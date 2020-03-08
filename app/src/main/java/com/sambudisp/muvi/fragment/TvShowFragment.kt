@@ -25,6 +25,8 @@ class TvShowFragment : Fragment(), TvListListener, TvFavListener {
     private lateinit var tvAdapter: TvShowListAdapter
     private lateinit var viewModel: TvViewModel
 
+    private var keyword: String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,7 +41,28 @@ class TvShowFragment : Fragment(), TvListListener, TvFavListener {
         setupRecylerView()
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(TvViewModel::class.java)
-        viewModel.setListTv()
+        viewModel.setListTv(keyword)
+        isLoading(true)
+
+        viewModel.getListTv().observe(this, Observer {
+            if (it != null){
+                tvAdapter.setData(it)
+                isLoading(false)
+            }
+        })
+
+        edt_search_tv.clearFocus()
+        btn_search_tv?.setOnClickListener {
+            if (edt_search_tv.text.isNullOrBlank())
+                onSearchClick(null)
+            else onSearchClick(edt_search_tv.text.toString())
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(TvViewModel::class.java)
+        viewModel.setListTv(keyword)
         isLoading(true)
 
         viewModel.getListTv().observe(this, Observer {
@@ -50,10 +73,9 @@ class TvShowFragment : Fragment(), TvListListener, TvFavListener {
         })
     }
 
-    override fun onResume() {
-        super.onResume()
+    private fun onSearchClick(query: String?) {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(TvViewModel::class.java)
-        viewModel.setListTv()
+        viewModel.setListTv(query)
         isLoading(true)
 
         viewModel.getListTv().observe(this, Observer {

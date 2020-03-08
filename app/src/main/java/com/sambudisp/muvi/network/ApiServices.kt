@@ -44,5 +44,26 @@ interface ApiServices {
         @Query("api_key") request: String?,
         @Query("language") language: String?
     ): Call<TvDetailResponse>
+
+
+    //movie search
+    @Headers("Content-Type:application/json")
+    @GET("search/movie")
+    fun movieSearch(
+        @Query("api_key") request: String?,
+        @Query("language") language: String?,
+        @Query("query") keyWord: String?
+    ): Call<MovieResponse>
+
+    //tv list
+    @Headers("Content-Type:application/json")
+    @GET("search/tv")
+    fun tvSearch(
+        @Query("api_key") request: String?,
+        @Query("language") language: String?,
+        @Query("query") keyWord: String?
+    ): Call<TvResponse>
+
+
 }
 

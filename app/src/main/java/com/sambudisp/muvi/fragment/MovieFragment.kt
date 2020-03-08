@@ -3,6 +3,7 @@ package com.sambudisp.muvi.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,8 @@ class MovieFragment : Fragment(), MovieListListener, MovieFavListener {
     private lateinit var movieAdapter: MovieListAdapter
     private lateinit var viewModel: MovieViewModel
 
+    private var keyword: String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,7 +46,7 @@ class MovieFragment : Fragment(), MovieListListener, MovieFavListener {
             this,
             ViewModelProvider.NewInstanceFactory()
         ).get(MovieViewModel::class.java)
-        viewModel.setListMovie()
+        viewModel.setListMovie(keyword)
         isLoading(true)
 
         viewModel.getListMovie().observe(this, Observer {
@@ -52,6 +55,13 @@ class MovieFragment : Fragment(), MovieListListener, MovieFavListener {
                 isLoading(false)
             }
         })
+
+        edt_search_movie.clearFocus()
+        btn_search_movie?.setOnClickListener {
+            if (edt_search_movie.text.isNullOrBlank())
+            onSearchClick(null)
+            else onSearchClick(edt_search_movie.text.toString())
+        }
     }
 
     override fun onResume() {
@@ -60,7 +70,22 @@ class MovieFragment : Fragment(), MovieListListener, MovieFavListener {
             this,
             ViewModelProvider.NewInstanceFactory()
         ).get(MovieViewModel::class.java)
-        viewModel.setListMovie()
+        viewModel.setListMovie(keyword)
+        isLoading(true)
+        viewModel.getListMovie().observe(this, Observer {
+            if (it != null) {
+                movieAdapter.setData(it)
+                isLoading(false)
+            }
+        })
+    }
+
+    private fun onSearchClick(query: String?) {
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        ).get(MovieViewModel::class.java)
+        viewModel.setListMovie(query)
         isLoading(true)
         viewModel.getListMovie().observe(this, Observer {
             if (it != null) {

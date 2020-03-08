@@ -34,5 +34,7 @@
 
     <string name="tab_fav_movie">Fav Movie</string>
     <string name="tab_fav_tv_show">Fav TV Series</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Input keyword</string>
 
 </resources>

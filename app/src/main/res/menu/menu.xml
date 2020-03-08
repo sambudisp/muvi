@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/tb_fav"
         android:icon="@drawable/ic_favorite_fill_white"
-        android:title="@string/setting_language"
-        app:showAsAction="ifRoom" />
+        android:title="@string/title_fav"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/tb_setting"
         android:icon="@drawable/ic_settings_white_24dp"
         android:title="@string/setting_language"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 </menu>

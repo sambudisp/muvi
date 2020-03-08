@@ -1,11 +1,15 @@
 package com.sambudisp.muvi.activity
 
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import com.sambudisp.muvi.R
 import com.sambudisp.muvi.database.helper.FavHelper
 import com.sambudisp.muvi.fragment.SectionsPagerAdapter
@@ -22,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         setupView()
 
         favHelper = FavHelper.getInstance(applicationContext)
-        //favHelper.open()
     }
 
     override fun onDestroy() {
@@ -34,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
