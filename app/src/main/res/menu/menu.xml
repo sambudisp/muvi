@@ -6,11 +6,11 @@
         android:id="@+id/tb_fav"
         android:icon="@drawable/ic_favorite_fill_white"
         android:title="@string/title_fav"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/tb_setting"
         android:icon="@drawable/ic_settings_white_24dp"
         android:title="@string/setting_language"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 </menu>
