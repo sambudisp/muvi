@@ -13,7 +13,7 @@ import com.sambudisp.muvi.adapter.DeletedListener
 import com.sambudisp.muvi.adapter.FavAdapter
 import com.sambudisp.muvi.database.helper.FavHelper
 import com.sambudisp.muvi.database.helper.MappingHelper
-import com.sambudisp.muvi.model.localStorage.FavModel
+import com.sambudisp.muvi.model.localstorage.FavModel
 import kotlinx.android.synthetic.main.fragment_fav_movie.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

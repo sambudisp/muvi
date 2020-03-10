@@ -2,7 +2,7 @@ package com.sambudisp.muvi.database.helper
 
 import android.database.Cursor
 import com.sambudisp.muvi.database.DatabaseContract
-import com.sambudisp.muvi.model.localStorage.FavModel
+import com.sambudisp.muvi.model.localstorage.FavModel
 
 object MappingHelper {
 

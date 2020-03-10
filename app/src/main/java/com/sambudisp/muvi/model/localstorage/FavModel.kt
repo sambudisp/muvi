@@ -1,4 +1,4 @@
-package com.sambudisp.muvi.model.localStorage
+package com.sambudisp.muvi.model.localstorage
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

@@ -1,8 +1,6 @@
 package com.sambudisp.muvi.adapter
 
-import android.app.Activity
 import android.content.ContentValues
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +10,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.sambudisp.muvi.R
-import com.sambudisp.muvi.database.DatabaseContract
 import com.sambudisp.muvi.database.DatabaseContract.FavColumns.Companion.CATEGORY
 import com.sambudisp.muvi.database.DatabaseContract.FavColumns.Companion.DATE
 import com.sambudisp.muvi.database.DatabaseContract.FavColumns.Companion.DESC
@@ -21,10 +18,9 @@ import com.sambudisp.muvi.database.DatabaseContract.FavColumns.Companion.POSTER
 import com.sambudisp.muvi.database.DatabaseContract.FavColumns.Companion.TITLE
 import com.sambudisp.muvi.database.helper.FavHelper
 import com.sambudisp.muvi.database.helper.MappingHelper
-import com.sambudisp.muvi.model.localStorage.FavModel
+import com.sambudisp.muvi.model.localstorage.FavModel
 import com.sambudisp.muvi.model.response.MovieResponseResult
 import com.squareup.picasso.Picasso
-import retrofit2.http.POST
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList

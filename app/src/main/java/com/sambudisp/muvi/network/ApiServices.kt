@@ -64,6 +64,14 @@ interface ApiServices {
         @Query("query") keyWord: String?
     ): Call<TvResponse>
 
+    //movie release today
+    @Headers("Content-Type:application/json")
+    @GET("discover/movie")
+    fun movieToday(
+        @Query("api_key") request: String?,
+        @Query("primary_release_date.gte") gTodayDate: String?,
+        @Query("primary_release_date.lte") lTodayDate: String?
+    ): Call<MovieResponse>
 
 }
 

@@ -14,6 +14,8 @@
     <string name="movie">Movie</string>
     <string name="order">Order</string>
     <string name="setting_language">Language Setting</string>
+    <string name="setting_reminder_on">Turn ON Notif</string>
+    <string name="setting_reminder_off">Turn OFF Notif</string>
     <string name="main_title">Muvi - Find Your Fav Show</string>
     <string name="null_desc">This is an attractive TV Series that will bring your into the story. This serie has 7 seasons with 30 episodes in every season.</string>
     <string name="err">Something Wrong</string>
@@ -23,6 +25,7 @@
     <string name="delete">Delete</string>
     <string name="title_fav">Favourite</string>
     <string name="data_empty">Data is empty</string>
+    <string name="fav_empty">Fav Empty</string>
     <string name="movie_has_been_saved_before">This movie has been saved before</string>
     <string name="item_saved">Saved to Fav</string>
     <string name="item_save_failed">Failed while saving to Fav</string>
@@ -36,5 +39,9 @@
     <string name="tab_fav_tv_show">Fav TV Series</string>
     <string name="search">Search</string>
     <string name="search_hint">Input keyword</string>
+    <string name="notif_is_off">Notification OFF</string>
+    <string name="notif_is_on">Notification ON</string>
+    <string name="new_movie">New Movie :</string>
+
 
 </resources>

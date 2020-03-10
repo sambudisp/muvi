@@ -14,6 +14,8 @@
     <string name="movie">Film</string>
     <string name="order">Beli</string>
     <string name="setting_language">Pengaturan Bahasa</string>
+    <string name="setting_reminder_on">Aktifkan Notifikasi</string>
+    <string name="setting_reminder_off">Matikan Notifikasi</string>
     <string name="main_title">Muvi - Temukan Film Favoritmu</string>
     <string name="null_desc">Sebuah serial TV menarik yang akan membawamu ke dalam cerita yang dalam. Seri ini sudah mencapai season 7 dengan 30 episode di setiap seasonnya</string>
     <string name="err">Terjadi Kendala</string>
@@ -23,6 +25,7 @@
     <string name="delete">Hapus</string>
     <string name="title_fav">Favorit</string>
     <string name="data_empty">Tidak ada data saat ini</string>
+    <string name="fav_empty">Tidak ada Fav</string>
     <string name="movie_has_been_saved_before">Film ini sudah pernah disimpan ke favorit sebelumnya</string>
     <string name="item_saved">Berhasil menyimpan ke Favorit</string>
     <string name="item_save_failed">Gagal menyimpan ke Favorit</string>
@@ -37,4 +40,9 @@
 
     <string name="search">Cari</string>
     <string name="search_hint">Masukan kata kunci</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="notif_is_off">Notifikasi Dimatikan</string>
+    <string name="notif_is_on">Notifikasi Dinyalakan</string>
+    <string name="new_movie">Film Baru :</string>
 </resources>

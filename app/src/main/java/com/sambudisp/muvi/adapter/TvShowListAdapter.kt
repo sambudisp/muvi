@@ -13,7 +13,7 @@ import com.sambudisp.muvi.R
 import com.sambudisp.muvi.database.DatabaseContract
 import com.sambudisp.muvi.database.helper.FavHelper
 import com.sambudisp.muvi.database.helper.MappingHelper
-import com.sambudisp.muvi.model.localStorage.FavModel
+import com.sambudisp.muvi.model.localstorage.FavModel
 import com.sambudisp.muvi.model.response.MovieResponseResult
 import com.sambudisp.muvi.model.response.TVResponseResult
 import com.squareup.picasso.Picasso

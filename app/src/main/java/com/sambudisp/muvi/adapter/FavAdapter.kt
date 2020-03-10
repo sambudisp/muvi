@@ -1,6 +1,5 @@
 package com.sambudisp.muvi.adapter
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +11,7 @@ import com.sambudisp.muvi.R
 import com.sambudisp.muvi.activity.ContentDetailActivity
 import com.sambudisp.muvi.database.helper.FavHelper
 import com.sambudisp.muvi.listener.CustomOnItemClickListener
-import com.sambudisp.muvi.model.localStorage.FavModel
+import com.sambudisp.muvi.model.localstorage.FavModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_fav.view.*
 
