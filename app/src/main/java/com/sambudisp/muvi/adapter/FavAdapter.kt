@@ -1,6 +1,7 @@
 package com.sambudisp.muvi.adapter
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.sambudisp.muvi.R
 import com.sambudisp.muvi.activity.ContentDetailActivity
+import com.sambudisp.muvi.database.DatabaseContract.FavColumns.Companion.CONTENT_URI
 import com.sambudisp.muvi.database.helper.FavHelper
 import com.sambudisp.muvi.listener.CustomOnItemClickListener
 import com.sambudisp.muvi.model.localstorage.FavModel
@@ -75,7 +77,9 @@ class FavAdapter(
                 )
 
                 btn_delete_saved_item.setOnClickListener {
-                    val result = favHelper.deleteById(fav.id.toString()).toLong()
+                    val uriWithId = Uri.parse(CONTENT_URI.toString() + "/" + fav.id)
+                    val result = itemView.context.contentResolver.delete(uriWithId, null, null)
+                    //val result = favHelper.deleteById(fav.id.toString()).toLong()
                     if (result > 0) {
                         Toast.makeText(
                             context,

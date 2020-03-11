@@ -1,10 +1,14 @@
 package com.sambudisp.muvi.database
 
+import android.net.Uri
 import android.provider.BaseColumns
 
-class DatabaseContract {
+object DatabaseContract {
 
-    internal class FavColumns : BaseColumns {
+    const val AUTHORITY = "com.sambudisp.muvi"
+    const val SCHEME = "content"
+
+    class FavColumns : BaseColumns {
         companion object{
             const val TABLE_NAME = "table_fav"
             const val _ID = "_id"
@@ -14,6 +18,11 @@ class DatabaseContract {
             const val CATEGORY = "category"
             const val DESC = "desc"
             const val POSTER = "poster"
+
+            val CONTENT_URI = Uri.Builder().scheme(SCHEME)
+                .authority(AUTHORITY)
+                .appendPath(TABLE_NAME)
+                .build()
         }
     }
 }

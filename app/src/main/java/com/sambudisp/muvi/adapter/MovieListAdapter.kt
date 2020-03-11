@@ -102,7 +102,7 @@ class MovieListAdapter(
                 values.put(CATEGORY, "movie")
 
                 try {
-                    val cursor = favHelper.quertByFavId(content.id.toString())
+                    val cursor = favHelper.queryByFavId(content.id.toString())
                     val resultCursor = MappingHelper.mapCursorToArrayList(cursor)
                     if (resultCursor.size > 0) {
                         Toast.makeText(

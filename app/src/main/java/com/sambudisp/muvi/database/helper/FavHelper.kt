@@ -58,7 +58,7 @@ class FavHelper(context: Context) {
         )
     }
 
-    fun queryByCategory(category : String): Cursor {
+    fun queryByCategory(category: String): Cursor {
         return database.query(
             DATABASE_TABLE,
             null,
@@ -71,7 +71,7 @@ class FavHelper(context: Context) {
         )
     }
 
-    fun quertByFavId(id: String): Cursor {
+    fun queryByFavId(id: String): Cursor {
         return database.query(
             DATABASE_TABLE,
             null,
@@ -90,6 +90,10 @@ class FavHelper(context: Context) {
 
     fun deleteById(id: String): Int {
         return database.delete(DATABASE_TABLE, "$_ID = '$id'", null)
+    }
+
+    fun update(id: String, values: ContentValues?): Int {
+        return database.update(DATABASE_TABLE, values, "$_ID = ?", arrayOf(id))
     }
 
 
