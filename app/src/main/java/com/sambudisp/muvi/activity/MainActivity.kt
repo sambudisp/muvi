@@ -1,11 +1,13 @@
 package com.sambudisp.muvi.activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.sambudisp.muvi.BuildConfig.API_KEY
 import com.sambudisp.muvi.DailyOpenAppReceiver
@@ -37,6 +39,9 @@ class MainActivity : AppCompatActivity() {
         favHelper = FavHelper.getInstance(applicationContext)
 
         dailyNotif = DailyOpenAppReceiver()
+
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(root_layout.windowToken, InputMethodManager.RESULT_UNCHANGED_SHOWN)
     }
 
     override fun onDestroy() {

@@ -94,7 +94,6 @@ class DailyOpenAppReceiver : BroadcastReceiver() {
         val calendar = Calendar.getInstance().time
         val dateFormat = SimpleDateFormat("yyyy-MM-dd");
         val date = dateFormat.format(calendar).toString()
-        Log.d("TODAYDATE", date.toString())
 
         MuviApp.apiService
             .movieToday(BuildConfig.API_KEY, date, date)
