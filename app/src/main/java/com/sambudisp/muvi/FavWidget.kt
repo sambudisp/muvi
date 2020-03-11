@@ -14,8 +14,8 @@ import com.sambudisp.muvi.services.StackWidgetService
 class FavWidget : AppWidgetProvider() {
 
     companion object {
-        private val TOAST_ACTION = "com.sambudisp.made.TOAST_ACTION"
-        const val EXTRA_ITEM = "com.sambudisp.made.EXTRA_ITEM"
+        private val TOAST_ACTION = "com.sambudisp.muvi.TOAST_ACTION"
+        const val EXTRA_ITEM = "com.sambudisp.muvi.EXTRA_ITEM"
 
         private fun updateAppWidget(
             context: Context,
