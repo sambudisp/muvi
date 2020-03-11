@@ -16,6 +16,13 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:visibility="gone"
         tools:text="@string/title_fav" />
+
+    <ImageView
+        android:id="@+id/img_banner_widget_fav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_launcher_foreground"/>
 
 </LinearLayout>
