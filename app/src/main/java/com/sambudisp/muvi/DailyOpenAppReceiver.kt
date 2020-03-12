@@ -41,7 +41,7 @@ class DailyOpenAppReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val type = intent.getStringExtra(EXTRA_TYPE)
         val message = intent.getStringExtra(EXTRA_MESSAGE)
-        
+
         val title = "Muvi"
         val notifId = ID_REPEATING_DAILY_OPEN_APP
 
@@ -132,43 +132,6 @@ class DailyOpenAppReceiver : BroadcastReceiver() {
             Toast.LENGTH_SHORT
         ).show()
     }
-
-    /* private fun getNewMovie() {
-         val calendar = Calendar.getInstance().time
-         val dateFormat = SimpleDateFormat("yyyy-MM-dd")
-         val date = dateFormat.format(calendar).toString()
-
-         MuviApp.apiService
-             .movieToday(BuildConfig.API_KEY, date, date)
-             .enqueue(object : Callback<MovieResponse> {
-                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                     Log.d("onFailure", t.message.toString())
-                 }
-
-                 override fun onResponse(
-                     call: Call<MovieResponse>,
-                     response: Response<MovieResponse>
-                 ) {
-                     response.code().let {
-                         try {
-                             if (it == 200) {
-                                 response.body()?.let { movie ->
-                                     newMovie = movie.results[0].title.toString()
-                                 }
-                             } else {
-                                 Log.d(
-                                     "onSuccessErr",
-                                     "Code : ${it} | Msg : ${response.errorBody()?.string()}"
-                                 )
-                             }
-                         } catch (e: Exception) {
-                             Log.d("Exception", e.message.toString())
-                         }
-                     }
-                 }
-             })
-     }*/
-
 
     private fun showAlarmNotification(
         context: Context,
