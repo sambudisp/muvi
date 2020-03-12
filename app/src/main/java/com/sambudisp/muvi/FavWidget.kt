@@ -3,10 +3,11 @@ package com.sambudisp.muvi
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.widget.RemoteViews
-import android.widget.Toast
 import androidx.core.net.toUri
 import com.sambudisp.muvi.services.StackWidgetService
 
@@ -63,7 +64,15 @@ class FavWidget : AppWidgetProvider() {
         if (intent?.action != null) {
             if (intent.action == TOAST_ACTION) {
                 val viewIndex = intent.getIntExtra(EXTRA_ITEM, 0)
-                Toast.makeText(context, "$viewIndex", Toast.LENGTH_SHORT).show()
+                val appWidgetManager = AppWidgetManager.getInstance(context)
+                val id = appWidgetManager.getAppWidgetIds(
+                    ComponentName(
+                        context!!,
+                        FavWidget::class.java
+                    )
+                );
+                appWidgetManager.notifyAppWidgetViewDataChanged(id, R.id.stackview_fav)
+                this.onUpdate(context, appWidgetManager, id)
             }
         }
     }

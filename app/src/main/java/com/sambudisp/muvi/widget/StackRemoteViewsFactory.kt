@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.Binder
 import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
@@ -13,23 +14,12 @@ import com.sambudisp.muvi.FavWidget
 import com.sambudisp.muvi.R
 import com.sambudisp.muvi.database.helper.FavHelper
 import com.sambudisp.muvi.database.helper.MappingHelper
-import com.sambudisp.muvi.model.localstorage.FavModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 
 class StackRemoteViewsFactory(private val context: Context) :
     RemoteViewsService.RemoteViewsFactory {
 
-    private var content = ArrayList<FavModel>()
-    private var fav = ArrayList<FavModel>()
     private lateinit var favHelper: FavHelper
-
     private val widgetItem = ArrayList<Bitmap>()
-    //private val widgetItem = ArrayList<String>()
-    private var isi: String? = null
-    private var mAppWidgetid: Int? = null
 
     override fun onCreate() {
         favHelper = FavHelper.getInstance(context)
@@ -37,18 +27,20 @@ class StackRemoteViewsFactory(private val context: Context) :
     }
 
     override fun onDataSetChanged() {
-        widgetItem.add(BitmapFactory.decodeResource(context.resources, R.drawable.poster_avengerinfinity))
-        widgetItem.add(BitmapFactory.decodeResource(context.resources, R.drawable.poster_avengerinfinity))
+        favHelper = FavHelper.getInstance(context)
+        if (!favHelper.isOpen()) favHelper.open()
+
+        val identityToken = Binder.clearCallingIdentity()
+        Binder.restoreCallingIdentity(identityToken)
 
         try {
-            GlobalScope.launch(Dispatchers.IO) {
-                val deferredFavs = async(Dispatchers.IO) {
-                    val cursorSearch = favHelper.queryAll()
-                    MappingHelper.mapCursorToArrayList(cursorSearch)
-                }
-                fav = deferredFavs.await()
-                if (fav.size > 0) {
-                    for (i in 0 until fav.size) {
+            val cursorSearch = favHelper.queryAll()
+            val cursor = MappingHelper.mapCursorToArrayList(cursorSearch)
+            val fav = cursor
+            if (fav.size > 0) {
+                widgetItem.clear()
+                for (i in 0 until fav.size) {
+                    try {
                         val poster = fav[i].poster.toString()
                         val bitmap = Glide.with(context)
                             .asBitmap()
@@ -56,11 +48,19 @@ class StackRemoteViewsFactory(private val context: Context) :
                             .submit()
                             .get()
                         widgetItem.add(bitmap)
+                    } catch (e: Exception) {
+                        Log.d("ErrorWidget", e.message.toString())
+                        widgetItem.add(
+                            BitmapFactory.decodeResource(
+                                context.resources,
+                                R.drawable.ic_broken_image_black_24dp
+                            )
+                        )
                     }
-                } else {
                 }
             }
         } catch (e: IllegalStateException) {
+            Log.d("ErrorWidget", "${e.message}")
         }
     }
 
@@ -76,18 +76,6 @@ class StackRemoteViewsFactory(private val context: Context) :
         fillInIntent.putExtras(extras)
         rv.setOnClickFillInIntent(R.id.img_banner_widget_fav, fillInIntent)
         return rv
-//
-//         val rv = RemoteViews(context.packageName, R.layout.item_widget_fav)
-//        rv.setTextViewText(R.id.txt_banner_widget_fav, widgetItem[position])
-//
-//        val extras = bundleOf(
-//            FavWidget.EXTRA_ITEM to position
-//        )
-//
-//        val fillInIntent = Intent()
-//        fillInIntent.putExtras(extras)
-//        rv.setOnClickFillInIntent(R.id.txt_banner_widget_fav, fillInIntent)
-//        return rv
     }
 
     override fun getCount(): Int = widgetItem.size

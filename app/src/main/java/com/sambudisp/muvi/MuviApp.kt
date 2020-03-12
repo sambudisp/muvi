@@ -34,7 +34,7 @@ class MuviApp : Application() {
     }
 
     private fun getOkHttpClient(): OkHttpClient {
-        val timeOut: Long = 20
+        val timeOut: Long = 15
         return OkHttpClient.Builder()
             .connectTimeout(timeOut, TimeUnit.SECONDS)
             .writeTimeout(timeOut, TimeUnit.SECONDS)

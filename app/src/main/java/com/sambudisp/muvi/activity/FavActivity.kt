@@ -102,7 +102,7 @@ class FavActivity : AppCompatActivity(), DeletedListener {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelableArrayList(FavActivity.EXTRA_STATE, adapter.listFav)
+        outState.putParcelableArrayList(EXTRA_STATE, adapter.listFav)
     }
 
     override fun onDeleted() {
@@ -110,7 +110,7 @@ class FavActivity : AppCompatActivity(), DeletedListener {
     }
 
     private fun showSnackbarMessage(message: String) {
-        Snackbar.make(rv_fav_movie, message, Snackbar.LENGTH_LONG).show()
+        Snackbar.make(root_layout, message, Snackbar.LENGTH_LONG).show()
     }
 
 }

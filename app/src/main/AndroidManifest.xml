@@ -4,9 +4,13 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <permission android:name="com.sambudisp.muvi.READ_DATABASE" android:protectionLevel="normal"/>
-    <permission android:name="com.sambudisp.muvi.WRITE_DATABASE" android:protectionLevel="normal"/>
 
+    <permission
+        android:name="com.sambudisp.muvi.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.sambudisp.muvi.WRITE_DATABASE"
+        android:protectionLevel="normal" />
 
     <application
         android:name=".MuviApp"
@@ -17,6 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.SettingActivity"></activity>
+
         <provider
             android:name=".provider.MuviProvider"
             android:authorities="com.sambudisp.muvi"

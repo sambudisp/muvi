@@ -26,19 +26,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var favHelper: FavHelper
 
-    private lateinit var dailyNotif: DailyOpenAppReceiver
-    private lateinit var menuPushNotif: MenuItem
-
-    private lateinit var newMovie : String
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupView()
 
         favHelper = FavHelper.getInstance(applicationContext)
-
-        dailyNotif = DailyOpenAppReceiver()
 
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(root_layout.windowToken, InputMethodManager.RESULT_UNCHANGED_SHOWN)
@@ -51,97 +44,32 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
-
-        menuPushNotif = menu?.findItem(R.id.tb_reminder)!!
-        if (
-            dailyNotif.isAlarmSetOpenApp(this) ||
-            dailyNotif.isAlarmSetNewMovie(this)
-        ) {
-            menuPushNotif.setTitle(getString(R.string.setting_reminder_off))
-        } else {
-            menuPushNotif.setTitle(getString(R.string.setting_reminder_on))
-        }
         return super.onCreateOptionsMenu(menu)
     }
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
-        if (id == R.id.tb_setting) {
-            changeLanguage()
+        if (id == R.id.tb_go_setting) {
+            goSetting()
+            //changeLanguage()
             return super.onOptionsItemSelected(item)
         } else if (id == R.id.tb_fav) {
             goFavList()
             return super.onOptionsItemSelected(item)
         } else if (id == R.id.tb_reminder) {
-            setReminderOnOff()
+            //setReminderOnOff()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setReminderOnOff() {
-        if (
-            dailyNotif.isAlarmSetOpenApp(this) ||
-            dailyNotif.isAlarmSetNewMovie(this)
-        ) {
-            dailyNotif.cancelAlarmOpenApp(this)
-            dailyNotif.cancelAlarmNewMovie(this)
-            menuPushNotif.setTitle(getString(R.string.setting_reminder_on))
-        } else {
-            dailyNotif.setRepeatingAlarmOpenApp(
-                this, DailyOpenAppReceiver.TYPE_REPEATING_OPEN_APP,
-                "07:00", "Banyak film favoritmu. Cuss cek di app sekarang!"
-            )
-            dailyNotif.setRepeatingAlarmNewMovie(
-                this, DailyOpenAppReceiver.TYPE_REPEATING_OPEN_APP,
-                "08:00", "Film Baru Hari Ini"
-            )
-            menuPushNotif.setTitle(getString(R.string.setting_reminder_off))
-        }
-    }
-
-    private fun getNewMovie(){
-        var language = "id-ID"
-        if (Locale.getDefault().displayLanguage.toString() != "Indonesia") language = "en-US"
-
-        MuviApp.apiService
-            .movie(API_KEY, language)
-            .enqueue(object : Callback<MovieResponse> {
-                override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                    Log.d("onFailure", t.message.toString())
-                }
-
-                override fun onResponse(
-                    call: Call<MovieResponse>,
-                    response: Response<MovieResponse>
-                ) {
-                    response.code().let {
-                        try {
-                            if (it == 200) {
-                                response.body()?.let {
-                                    newMovie = it.results[0].title.toString()
-                                }
-                            } else {
-                                Log.d(
-                                    "onSuccessErr",
-                                    "Code : ${it} | Msg : ${response.errorBody()?.string()}"
-                                )
-                            }
-                        } catch (e: Exception) {
-                            Log.d("Exception", e.message.toString())
-                        }
-                    }
-                }
-            })
+    private fun goSetting() {
+        val intent = Intent(this, SettingActivity::class.java)
+        startActivity(intent)
     }
 
     private fun goFavList() {
         val intent = Intent(this, FavActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun changeLanguage() {
-        val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
         startActivity(intent)
     }
 

@@ -45,4 +45,5 @@
     <string name="notif_is_off">Notifikasi Dimatikan</string>
     <string name="notif_is_on">Notifikasi Dinyalakan</string>
     <string name="new_movie">Film Baru :</string>
+    <string name="title_setting">Pengaturan</string>
 </resources>
