@@ -92,7 +92,7 @@ class SettingActivity : AppCompatActivity() {
                     btn_stg_notification_new_movie.isChecked = false
                 } else {
                     dailyNotif.setRepeatingAlarmNewMovie(
-                        this, DailyOpenAppReceiver.TYPE_REPEATING_OPEN_APP,
+                        this, DailyOpenAppReceiver.TYPE_REPEATING_NEW_MOVIE,
                         "08:00", "Film Baru Hari Ini"
                     )
                     btn_stg_notification_new_movie.setText(getString(R.string.notif_is_on_new_movie))

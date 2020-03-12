@@ -41,9 +41,45 @@ class DailyOpenAppReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val type = intent.getStringExtra(EXTRA_TYPE)
         val message = intent.getStringExtra(EXTRA_MESSAGE)
+        
         val title = "Muvi"
         val notifId = ID_REPEATING_DAILY_OPEN_APP
-        showAlarmNotification(context, title, message, notifId)
+
+        val calendar = Calendar.getInstance().time
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+        val date = dateFormat.format(calendar).toString()
+
+        MuviApp.apiService
+            .movieToday(BuildConfig.API_KEY, date, date)
+            .enqueue(object : Callback<MovieResponse> {
+                override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
+                    Log.d("onFailure", t.message.toString())
+                }
+
+                override fun onResponse(
+                    call: Call<MovieResponse>,
+                    response: Response<MovieResponse>
+                ) {
+                    response.code().let {
+                        try {
+                            if (it == 200) {
+                                response.body()?.let { movie ->
+                                    val result =
+                                        "${context.getString(R.string.new_movie)} ${movie.results[0].title.toString()}"
+                                    showAlarmNotification(context, title, result, notifId)
+                                }
+                            } else {
+                                Log.d(
+                                    "onSuccessErr",
+                                    "Code : ${it} | Msg : ${response.errorBody()?.string()}"
+                                )
+                            }
+                        } catch (e: Exception) {
+                            Log.d("Exception", e.message.toString())
+                        }
+                    }
+                }
+            })
     }
 
     fun setRepeatingAlarmOpenApp(context: Context, type: String, time: String, message: String) {
@@ -64,12 +100,15 @@ class DailyOpenAppReceiver : BroadcastReceiver() {
             AlarmManager.INTERVAL_DAY,
             pendingIntent
         )
-        Toast.makeText(context, context.getString(R.string.notif_is_on_open_app), Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            context,
+            context.getString(R.string.notif_is_on_open_app),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     fun setRepeatingAlarmNewMovie(context: Context, type: String, time: String, message: String) {
         if (isDateInvalid(time, TIME_FORMAT)) return
-        if (!getNewMovie()) return
 
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, DailyOpenAppReceiver::class.java)
@@ -87,51 +126,54 @@ class DailyOpenAppReceiver : BroadcastReceiver() {
             AlarmManager.INTERVAL_DAY,
             pendingIntent
         )
-        Toast.makeText(context, context.getString(R.string.notif_is_on_new_movie), Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            context,
+            context.getString(R.string.notif_is_on_new_movie),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
-    private fun getNewMovie(): Boolean {
-        val calendar = Calendar.getInstance().time
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
-        val date = dateFormat.format(calendar).toString()
+    /* private fun getNewMovie() {
+         val calendar = Calendar.getInstance().time
+         val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+         val date = dateFormat.format(calendar).toString()
 
-        MuviApp.apiService
-            .movieToday(BuildConfig.API_KEY, date, date)
-            .enqueue(object : Callback<MovieResponse> {
-                override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                    Log.d("onFailure", t.message.toString())
-                }
+         MuviApp.apiService
+             .movieToday(BuildConfig.API_KEY, date, date)
+             .enqueue(object : Callback<MovieResponse> {
+                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
+                     Log.d("onFailure", t.message.toString())
+                 }
 
-                override fun onResponse(
-                    call: Call<MovieResponse>,
-                    response: Response<MovieResponse>
-                ) {
-                    response.code().let {
-                        try {
-                            if (it == 200) {
-                                response.body()?.let { movie ->
-                                    newMovie = movie.results[0].title.toString()
-                                }
-                            } else {
-                                Log.d(
-                                    "onSuccessErr",
-                                    "Code : ${it} | Msg : ${response.errorBody()?.string()}"
-                                )
-                            }
-                        } catch (e: Exception) {
-                            Log.d("Exception", e.message.toString())
-                        }
-                    }
-                }
-            })
-        if (newMovie != null) return true else return false
-    }
+                 override fun onResponse(
+                     call: Call<MovieResponse>,
+                     response: Response<MovieResponse>
+                 ) {
+                     response.code().let {
+                         try {
+                             if (it == 200) {
+                                 response.body()?.let { movie ->
+                                     newMovie = movie.results[0].title.toString()
+                                 }
+                             } else {
+                                 Log.d(
+                                     "onSuccessErr",
+                                     "Code : ${it} | Msg : ${response.errorBody()?.string()}"
+                                 )
+                             }
+                         } catch (e: Exception) {
+                             Log.d("Exception", e.message.toString())
+                         }
+                     }
+                 }
+             })
+     }*/
 
 
     private fun showAlarmNotification(
         context: Context,
-        title: String,
-        message: String,
+        title: String?,
+        message: String?,
         notifId: Int
     ) {
 
@@ -181,7 +223,11 @@ class DailyOpenAppReceiver : BroadcastReceiver() {
 
         alarmManager.cancel(pendingIntent)
 
-        Toast.makeText(context, context.getString(R.string.notif_is_off_open_app), Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            context,
+            context.getString(R.string.notif_is_off_open_app),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     fun cancelAlarmNewMovie(context: Context) {
@@ -193,7 +239,11 @@ class DailyOpenAppReceiver : BroadcastReceiver() {
 
         alarmManager.cancel(pendingIntent)
 
-        Toast.makeText(context, context.getString(R.string.notif_is_off_new_movie), Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            context,
+            context.getString(R.string.notif_is_off_new_movie),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     fun isAlarmSetOpenApp(context: Context): Boolean {
