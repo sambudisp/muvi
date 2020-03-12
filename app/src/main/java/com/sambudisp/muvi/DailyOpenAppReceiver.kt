@@ -64,7 +64,7 @@ class DailyOpenAppReceiver : BroadcastReceiver() {
             AlarmManager.INTERVAL_DAY,
             pendingIntent
         )
-        //Toast.makeText(context, context.getString(R.string.notif_is_on), Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, context.getString(R.string.notif_is_on_open_app), Toast.LENGTH_SHORT).show()
     }
 
     fun setRepeatingAlarmNewMovie(context: Context, type: String, time: String, message: String) {
@@ -87,12 +87,12 @@ class DailyOpenAppReceiver : BroadcastReceiver() {
             AlarmManager.INTERVAL_DAY,
             pendingIntent
         )
-        Toast.makeText(context, context.getString(R.string.notif_is_on), Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, context.getString(R.string.notif_is_on_new_movie), Toast.LENGTH_SHORT).show()
     }
 
     private fun getNewMovie(): Boolean {
         val calendar = Calendar.getInstance().time
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd");
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
         val date = dateFormat.format(calendar).toString()
 
         MuviApp.apiService
@@ -181,7 +181,7 @@ class DailyOpenAppReceiver : BroadcastReceiver() {
 
         alarmManager.cancel(pendingIntent)
 
-        //Toast.makeText(context, context.getString(R.string.notif_is_off), Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, context.getString(R.string.notif_is_off_open_app), Toast.LENGTH_SHORT).show()
     }
 
     fun cancelAlarmNewMovie(context: Context) {
@@ -193,7 +193,7 @@ class DailyOpenAppReceiver : BroadcastReceiver() {
 
         alarmManager.cancel(pendingIntent)
 
-        Toast.makeText(context, context.getString(R.string.notif_is_off), Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, context.getString(R.string.notif_is_off_new_movie), Toast.LENGTH_SHORT).show()
     }
 
     fun isAlarmSetOpenApp(context: Context): Boolean {

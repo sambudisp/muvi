@@ -3,6 +3,7 @@ package com.sambudisp.muvi.activity
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.sambudisp.muvi.DailyOpenAppReceiver
@@ -13,6 +14,11 @@ class SettingActivity : AppCompatActivity() {
 
     private lateinit var dailyNotif: DailyOpenAppReceiver
 
+    companion object {
+        val KEY_OPEN_APP = "open_app"
+        val KEY_NEW_MOVIE = "new_movie"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
@@ -22,7 +28,8 @@ class SettingActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
         dailyNotif = DailyOpenAppReceiver()
 
-        checkReminder()
+        checkReminder(KEY_OPEN_APP)
+        checkReminder(KEY_NEW_MOVIE)
         setupButton()
     }
 
@@ -31,44 +38,70 @@ class SettingActivity : AppCompatActivity() {
             changeLanguage()
         }
 
-        btn_stg_notification?.setOnCheckedChangeListener { buttonView, isChecked ->
-            setReminderOnOff()
+        btn_stg_notification_open_app?.setOnCheckedChangeListener { buttonView, isChecked ->
+            setReminderOnOff(KEY_OPEN_APP)
+        }
+
+        btn_stg_notification_new_movie?.setOnCheckedChangeListener { buttonView, isChecked ->
+            setReminderOnOff(KEY_NEW_MOVIE)
         }
     }
 
 
-    private fun checkReminder() {
-        if (
-            dailyNotif.isAlarmSetOpenApp(this) ||
-            dailyNotif.isAlarmSetNewMovie(this)
-        ) {
-            btn_stg_notification.setText(getString(R.string.notif_is_on))
-            btn_stg_notification.isChecked = true
-        } else {
-            btn_stg_notification.setText(getString(R.string.notif_is_off))
-            btn_stg_notification.isChecked = false
+    private fun checkReminder(key: String?) {
+        when (key) {
+            KEY_OPEN_APP ->
+                if (dailyNotif.isAlarmSetOpenApp(this)) {
+                    btn_stg_notification_open_app.setText(getString(R.string.notif_is_on_open_app))
+                    btn_stg_notification_open_app.isChecked = true
+                } else {
+                    btn_stg_notification_open_app.setText(getString(R.string.notif_is_off_open_app))
+                    btn_stg_notification_open_app.isChecked = false
+                }
+            KEY_NEW_MOVIE ->
+                if (dailyNotif.isAlarmSetNewMovie(this)) {
+                    btn_stg_notification_new_movie.setText(getString(R.string.notif_is_on_new_movie))
+                    btn_stg_notification_new_movie.isChecked = true
+                } else {
+                    btn_stg_notification_new_movie.setText(getString(R.string.notif_is_off_new_movie))
+                    btn_stg_notification_new_movie.isChecked = false
+                }
+            else -> Log.d("Error", key.toString())
         }
     }
 
-    private fun setReminderOnOff() {
-        if (dailyNotif.isAlarmSetOpenApp(this) || dailyNotif.isAlarmSetNewMovie(this)) {
-            dailyNotif.cancelAlarmOpenApp(this)
-            dailyNotif.cancelAlarmNewMovie(this)
-            btn_stg_notification.setText(getString(R.string.notif_is_off))
-            btn_stg_notification.isChecked = false
-        } else {
-            dailyNotif.setRepeatingAlarmOpenApp(
-                this, DailyOpenAppReceiver.TYPE_REPEATING_OPEN_APP,
-                "07:00", "Banyak film favoritmu. Cuss cek di app sekarang!"
-            )
-            dailyNotif.setRepeatingAlarmNewMovie(
-                this, DailyOpenAppReceiver.TYPE_REPEATING_OPEN_APP,
-                "08:00", "Film Baru Hari Ini"
-            )
-            btn_stg_notification.setText(getString(R.string.notif_is_on))
-            btn_stg_notification.isChecked = true
+    private fun setReminderOnOff(key: String?) {
+        when (key) {
+            KEY_OPEN_APP ->
+                if (dailyNotif.isAlarmSetOpenApp(this)) {
+                    dailyNotif.cancelAlarmOpenApp(this)
+                    btn_stg_notification_open_app.setText(getString(R.string.notif_is_off_open_app))
+                    btn_stg_notification_open_app.isChecked = false
+                } else {
+                    dailyNotif.setRepeatingAlarmOpenApp(
+                        this, DailyOpenAppReceiver.TYPE_REPEATING_OPEN_APP,
+                        "07:00", "Banyak film favoritmu. Cuss cek di app sekarang!"
+                    )
+                    btn_stg_notification_open_app.setText(getString(R.string.notif_is_on_open_app))
+                    btn_stg_notification_open_app.isChecked = true
+                }
+            KEY_NEW_MOVIE ->
+                if (dailyNotif.isAlarmSetNewMovie(this)) {
+                    dailyNotif.cancelAlarmNewMovie(this)
+                    btn_stg_notification_new_movie.setText(getString(R.string.notif_is_off_new_movie))
+                    btn_stg_notification_new_movie.isChecked = false
+                } else {
+                    dailyNotif.setRepeatingAlarmNewMovie(
+                        this, DailyOpenAppReceiver.TYPE_REPEATING_OPEN_APP,
+                        "08:00", "Film Baru Hari Ini"
+                    )
+                    btn_stg_notification_new_movie.setText(getString(R.string.notif_is_on_new_movie))
+                    btn_stg_notification_new_movie.isChecked = true
+                }
+            else -> Log.d("Error", key.toString())
         }
-        checkReminder()
+        checkReminder(KEY_OPEN_APP)
+        checkReminder(KEY_NEW_MOVIE)
     }
 
 

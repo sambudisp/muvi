@@ -39,8 +39,10 @@
     <string name="tab_fav_tv_show">Fav TV Series</string>
     <string name="search">Search</string>
     <string name="search_hint">Input keyword</string>
-    <string name="notif_is_off">Notification OFF</string>
-    <string name="notif_is_on">Notification ON</string>
+    <string name="notif_is_off_open_app">Open App Notification OFF</string>
+    <string name="notif_is_on_open_app">Open App Notification ON</string>
+    <string name="notif_is_off_new_movie">New Movie Notification OFF</string>
+    <string name="notif_is_on_new_movie">New Movie Notification ON</string>
     <string name="new_movie">New Movie :</string>
     <string name="title_setting">Setting</string>
 

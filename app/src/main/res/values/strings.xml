@@ -42,8 +42,10 @@
     <string name="search_hint">Masukan kata kunci</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
-    <string name="notif_is_off">Notifikasi Dimatikan</string>
-    <string name="notif_is_on">Notifikasi Dinyalakan</string>
+    <string name="notif_is_off_open_app">Notifikasi Buka Aplikasi Dimatikan</string>
+    <string name="notif_is_on_open_app">Notifikasi Buka Aplikasi Dinyalakan</string>
+    <string name="notif_is_off_new_movie">Notifikasi Film Baru Dimatikan</string>
+    <string name="notif_is_on_new_movie">Notifikasi Film Baru Dinyalakan</string>
     <string name="new_movie">Film Baru :</string>
     <string name="title_setting">Pengaturan</string>
 </resources>
