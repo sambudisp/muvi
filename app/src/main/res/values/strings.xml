@@ -46,6 +46,6 @@
     <string name="notif_is_on_open_app">Notifikasi Buka Aplikasi Dinyalakan</string>
     <string name="notif_is_off_new_movie">Notifikasi Film Baru Dimatikan</string>
     <string name="notif_is_on_new_movie">Notifikasi Film Baru Dinyalakan</string>
-    <string name="new_movie">Film Baru :</string>
+    <string name="new_movie">Film Baru </string>
     <string name="title_setting">Pengaturan</string>
 </resources>

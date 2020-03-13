@@ -37,6 +37,12 @@ class MainActivity : AppCompatActivity() {
         imm.hideSoftInputFromWindow(root_layout.windowToken, InputMethodManager.RESULT_UNCHANGED_SHOWN)
     }
 
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        DailyOpenAppReceiver().stackNotif.clear()
+        DailyOpenAppReceiver().idNotification = 0
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         favHelper.close()
