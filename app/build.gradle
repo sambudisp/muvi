@@ -14,6 +14,11 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
     buildTypes {
         release {
             minifyEnabled true
@@ -34,6 +39,7 @@ android {
 androidExtensions {
     experimental = true
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
