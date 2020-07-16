@@ -10,263 +10,41 @@
     <string name="tab_movie">Movie</string>
     <string name="tab_tv_show">TV Show</string>
     <string name="tv_show">TV Show</string>
+    <string name="movie_cinema">Movie</string>
     <string name="movie">Movie</string>
     <string name="order">Order</string>
     <string name="setting_language">Language Setting</string>
+    <string name="setting_reminder_on">Turn ON Notif</string>
+    <string name="setting_reminder_off">Turn OFF Notif</string>
     <string name="main_title">Muvi - Find Your Fav Show</string>
+    <string name="null_desc">This is an attractive TV Series that will bring your into the story. This serie has 7 seasons with 30 episodes in every season.</string>
+    <string name="err">Something Wrong</string>
+    <string name="released_at">Released at :</string>
+    <string name="season">Season</string>
+    <string name="date">Date</string>
+    <string name="delete">Delete</string>
+    <string name="title_fav">Favourite</string>
+    <string name="data_empty">Data is empty</string>
+    <string name="fav_empty">Fav Empty</string>
+    <string name="movie_has_been_saved_before">This movie has been saved before</string>
+    <string name="item_saved">Saved to Fav</string>
+    <string name="item_save_failed">Failed while saving to Fav</string>
+    <string name="item_save_catch">Something Wrong</string>
+    <string name="save_to_fav">Save to Fav</string>
+    <string name="saved_at">Saved at : </string>
+    <string name="item_deleted">Deleted</string>
+    <string name="item_delete_failed">Failed to Delete Item</string>
 
-    <string-array name="data_video_movie">
-        <item>https://www.youtube.com/watch?v=nSbzyEJ8X9E</item>
-        <item>https://www.youtube.com/watch?v=WDkg3h8PCVU</item>
-        <item>https://www.youtube.com/watch?v=y0M433RvwZo</item>
-        <item>https://www.youtube.com/watch?v=o2AsIXSh2xo</item>
-        <item>https://www.youtube.com/watch?v=mP0VHJYFOAU</item>
-        <item>https://www.youtube.com/watch?v=lcwmDAYt22k</item>
-        <item>https://www.youtube.com/watch?v=ovFpFtZ2Tvk</item>
-        <item>https://www.youtube.com/watch?v=ONHBaC-pfsk</item>
-        <item>https://www.youtube.com/watch?v=naW9U8MiUY0</item>
-        <item>https://www.youtube.com/watch?v=9OoT8KvPPX8</item>
-        <item>https://www.youtube.com/watch?v=95ghQs5AmNk</item>
-    </string-array>
+    <string name="tab_fav_movie">Fav Movie</string>
+    <string name="tab_fav_tv_show">Fav TV Series</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Input keyword</string>
+    <string name="notif_is_off_open_app">Open App Notification OFF</string>
+    <string name="notif_is_on_open_app">Open App Notification ON</string>
+    <string name="notif_is_off_new_movie">New Movie Notification OFF</string>
+    <string name="notif_is_on_new_movie">New Movie Notification ON</string>
+    <string name="new_movie">New Movie </string>
+    <string name="title_setting">Setting</string>
 
-    <string-array name="data_poster_movie">
-        <item>@drawable/poster_a_star</item>
-        <item>@drawable/poster_aquaman</item>
-        <item>@drawable/poster_avengerinfinity</item>
-        <item>@drawable/poster_birdbox</item>
-        <item>@drawable/poster_bohemian</item>
-        <item>@drawable/poster_bumblebee</item>
-        <item>@drawable/poster_creed</item>
-        <item>@drawable/poster_deadpool</item>
-        <item>@drawable/poster_dragon</item>
-        <item>@drawable/poster_dragonball</item>
-        <item>@drawable/poster_glass</item>
-    </string-array>
-
-    <string-array name="data_category_movie">
-        <item>Drama</item>
-        <item>Action | Sci-Fi</item>
-        <item>Action | Sci-Fi</item>
-        <item>Drama | Sci-Fi</item>
-        <item>Biography</item>
-        <item>Action</item>
-        <item>Action</item>
-        <item>Comedy</item>
-        <item>Animation</item>
-        <item>Animation</item>
-        <item>Action</item>
-    </string-array>
-
-    <string-array name="data_title_movie">
-        <item>A Star Is Born</item>
-        <item>Aquaman</item>
-        <item>Avenger : Infinity War</item>
-        <item>Birdbox</item>
-        <item>Bohemian Rapsodi</item>
-        <item>Bumblebee</item>
-        <item>Creed II</item>
-        <item>Deadpool</item>
-        <item>How To Train Your Dragon</item>
-        <item>Dragon Ball</item>
-        <item>Glass</item>
-    </string-array>
-
-    <string-array name="data_description_movie">
-        <item>Seorang bintang musik country yang karirnya mulai memudar, Jackson Maine (Bradley Cooper) menemukan sebuah talenta yang sangat berbakat di dalam diri dari seorang musisi muda bernama Ally (Lady Gaga). Maine berhasil mengorbitkan Ally menjadi seorang bintang muda yang menjanjikan. Namun keduanya terlibat hubungan yang lebih jauh dari sekedar mentor dan anak didik. Seiring dengan meroketnya karir dari Ally dan dirinya, Maine mengalami dilema mengenai masalah ini.</item>
-        <item>Film ini mengungkap asal-usul Arthur Curry, manusia perkasa yang bisa mengendalikan air dan hewan laut. Dari mana ia mendapatkan kekuatannya? Siapa orang tuanya, dan pantaskah dia menjadi seorang raja di 7samudera?</item>
-        <item>The Avengers dan sekutu mereka harus bersedia mengorbankan segalanya dalam upaya untuk mengalahkan Thanos yang kuat sebelum ia berhasil menghancurkan alam semesta.</item>
-        <item>Malorie Hayes (Sandra Bullock), seorang seniman yang tengah mengandung sedang memeriksakan diri ke dokter bersama kakak perempuannya Jessica (Sarah Paulson). Dalam perjalanan pulang, keduanya melihat terjadi kekacauan di luar hingga banyak orang melakukan bunuh diri. Di saat yang sama, Jessica kemudian terlihat aneh hingga akhirnya bunuh diri di depan mata Malorie.</item>
-        <item>Diangkat dari kisah nyata untuk merayakan musik band Rock legendaris QUEEN dan tentunya vokalis mereka yang luar biasa, FREDDIE MERCURY, yang dikenal menentang tradisi dan stereotip hingga menjadi salah satu penghibur yang paling dicintai di planet ini.</item>
-        <item>Dalam pelarian di tahun 1987, Bumblebee menemukan perlindungan di tempat rongsokan di sebuah kota kecil pinggir pantai California. Charlie, gadis yang tengah menyentuh usia 18 tahun dan sedang mencari jati diri, menemukan Bumblebee, yang banyak tergores dan rusak. Ketika berusaha memfungsikannya lagi, Charlie menyaksikan sendiri bahwa ini bukanlah mobil VW kodok berwarna kuning yang biasa.</item>
-        <item>Creed II akan melanjutkan kisah Adonis Johnson di dalam serta di luar ring saat ia berhadapan dengan ketenaran, masalah keluarga dan misi yang terus berlanjut untuk menjadi juara sejati.</item>
-        <item>Prajurit bayaran Wade Wilson, menjalani percobaan untuk menyembuhkan dirinya dari kanker. Ia memperoleh kekuatan dari proses penyembuhan itu, tapi dengan konsekuensi menjadi cacat fisik permanen.</item>
-        <item>Seorang Viking muda menentang tradisi ketika ia berteman dengan seekor naga bernama Toothless. Bersama, para pahlawan tidak biasa ini melawan segala rintangan demi menyelamatkan kedua dunia mereka.</item>
-        <item>Ini adalah kisah baru dari Bangsa Saiyan. Bumi damai setelah Turnamen Kekuasaan. Menyadari bahwa alam semesta masih memiliki banyak orang yang lebih kuat untuk ditemukan, Goku menghabiskan seluruh harinya berlatih untuk mencapai kemampuan bertarungnya yang lebih baik lagi. Lalu suatu hari, Goku dan Vegeta dihadapkan oleh seorang Saiyan lainnya bernama Broly yang belum pernah mereka lihat sebelumnya.</item>
-        <item>Film Glass akan melanjutkan kisah pencarian Kevin Wendell Crumb yang hmelarikan diri setelah menculik para gadis. Kevin Wendel Crumbang memiliki 20 kepribadian dalam satu jiwa ini bisa berubah menjadi seorang monster saat pribadinya yang bernama The Beast muncul.</item>
-    </string-array>
-
-    <string-array name="data_rate_movie">
-        <item>7/10</item>
-        <item>8/10</item>
-        <item>8/10</item>
-        <item>7/10</item>
-        <item>5/10</item>
-        <item>7/10</item>
-        <item>6/10</item>
-        <item>7/10</item>
-        <item>9/10</item>
-        <item>7/10</item>
-        <item>9/10</item>
-    </string-array>
-
-    <string-array name="data_restriction_movie">
-        <item>18+</item>
-        <item>18+</item>
-        <item>18+</item>
-        <item>12+</item>
-        <item>18+</item>
-        <item>12+</item>
-        <item>17+</item>
-        <item>5+</item>
-        <item>5+</item>
-        <item>5+</item>
-        <item>18+</item>
-    </string-array>
-
-    <string-array name="data_price_movie">
-        <item>Rp40.000</item>
-        <item>Rp35.000</item>
-        <item>Rp35.000</item>
-        <item>Rp35.000</item>
-        <item>Rp40.000</item>
-        <item>Rp40.000</item>
-        <item>Rp35.000</item>
-        <item>Rp40.000</item>
-        <item>Rp35.000</item>
-        <item>Rp40.000</item>
-        <item>Rp35.000</item>
-    </string-array>
-
-    <string-array name="data_is_promo_movie">
-        <item>true</item>
-        <item>true</item>
-        <item>false</item>
-        <item>true</item>
-        <item>false</item>
-        <item>true</item>
-        <item>false</item>
-        <item>true</item>
-        <item>false</item>
-        <item>true</item>
-        <item>false</item>
-    </string-array>
-
-    <!-- // -->
-
-    <string-array name="data_video_tv">
-        <item>https://www.youtube.com/watch?v=XQS7JkQmlx8</item>
-        <item>https://www.youtube.com/watch?v=6tTM9nbRk5A</item>
-        <item>https://www.youtube.com/watch?v=T4_wHfz2qUA</item>
-        <item>https://www.youtube.com/watch?v=AtlsjFlcRZ0</item>
-        <item>https://www.youtube.com/watch?v=roeWUfVaGsc</item>
-        <item>https://www.youtube.com/watch?v=Yj0l7iGKh8g</item>
-        <item>https://www.youtube.com/watch?v=rlR4PJn8b8I</item>
-        <item>https://www.youtube.com/watch?v=lPe-oYBsbw0</item>
-        <item>https://www.youtube.com/watch?v=q1pcpgREQ5c</item>
-        <item>https://www.youtube.com/watch?v=u73CLdHpbNk</item>
-        <item>https://www.youtube.com/watch?v=f9OKL5no-S0</item>
-    </string-array>
-
-    <string-array name="data_poster_tv">
-        <item>@drawable/poster_arrow</item>
-        <item>@drawable/poster_doom_patrol</item>
-        <item>@drawable/poster_dragon_ball</item>
-        <item>@drawable/poster_fairytail</item>
-        <item>@drawable/poster_family_guy</item>
-        <item>@drawable/poster_flash</item>
-        <item>@drawable/poster_god</item>
-        <item>@drawable/poster_gotham</item>
-        <item>@drawable/poster_grey_anatomy</item>
-        <item>@drawable/poster_hanna</item>
-        <item>@drawable/poster_iron_fist</item>
-    </string-array>
-
-    <string-array name="data_category_tv">
-        <item>Action</item>
-        <item>Action</item>
-        <item>Animation</item>
-        <item>Animation</item>
-        <item>Animation</item>
-        <item>Action | Sci-Fi</item>
-        <item>Action</item>
-        <item>Action</item>
-        <item>Drama</item>
-        <item>Drama</item>
-        <item>Action</item>
-    </string-array>
-
-    <string-array name="data_title_tv">
-        <item>The Arrow</item>
-        <item>Doom Patrol</item>
-        <item>Dragon Ball</item>
-        <item>Fairy Tail</item>
-        <item>Family Guy</item>
-        <item>The Flash</item>
-        <item>Game of Thrones</item>
-        <item>Gotham</item>
-        <item>Grey Anatomy</item>
-        <item>Hanna</item>
-        <item>Iron Fist</item>
-    </string-array>
-
-    <string-array name="data_description_tv">
-        <item>Arrow is an American superhero television series developed by Greg Berlanti, Marc Guggenheim, and Andrew Kreisberg based on the DC Comics character Green Arrow, a costumed crime-fighter created by Mort Weisinger and George Papp, and is set in the Arrowverse, sharing continuity with other Arrowverse television series. The series premiered in the United States on The CW on October 10, 2012, and was primarily filmed in Vancouver, British Columbia, Canada. In January 2019, The CW renewed the series for an eighth season, which premiered on October 15, 2019. In March, it was announced this would serve as the final season of the series, consisting of ten episodes which would contribute to the Crisis on Infinite Earths crossover event.</item>
-        <item>Doom Patrol is an American web television series created by Jeremy Carver for DC Universe. Based on the DC Comics superhero team of the same name, the series features Jane (Diane Guerrero), Rita Farr (April Bowlby), Vic Stone (Joivan Wade), Larry Trainor (Matt Bomer), Cliff Steele (Brendan Fraser), and the Chief (Timothy Dalton) as the members of the titular Doom Patrol. Although Bowlby, Fraser, and Bomer reprise their roles from the DC Universe series Titans, the two shows are set in separate continuities.</item>
-        <item>Dragon Ball is a Japanese anime television series produced by Toei Animation. It is an adaptation of the first 194 chapters of the manga of the same name created by Akira Toriyama, which were published in Weekly Shōnen Jump from 1984 to 1995. The anime is composed of 153 episodes that were broadcast on Fuji TV from February 26, 1986, to April 19, 1989. It was broadcast in 81 countries worldwide.[3] It is part of the Dragon Ball media franchise.</item>
-        <item>Fairy Tail is a Japanese manga series written and illustrated by Hiro Mashima. It was serialized in Kodansha Weekly Shōnen Magazine from August 2, 2006 to July 26, 2017, with the individual chapters collected and published into 63 tankōbon volumes. The story follows the adventures of Natsu Dragneel, a member of the popular wizard[4] guild Fairy Tail, as he searches the fictional world of Earth-land for the dragon Igneel.</item>
-        <item>Family Guy is an American animated sitcom television series created by Seth MacFarlane for the Fox Broadcasting Company. The series centers on the Griffins, a family consisting of parents Peter and Lois; their children, Meg, Chris, and Stewie; and their anthropomorphic pet dog, Brian. The show is set in the fictional city of Quahog, Rhode Island, and exhibits much of its surreal &amp; dark humor[2] in the form of metafictional cutaway gags that often lampoon American culture.</item>
-        <item>The Flash is an American superhero television series developed by Greg Berlanti, Andrew Kreisberg, and Geoff Johns, airing on The CW. It is based on the DC Comics character Barry Allen / Flash, a costumed superhero crime-fighter with the power to move at superhuman speeds. It is a spin-off from Arrow, existing in the same fictional universe. The series follows Barry Allen, portrayed by Grant Gustin, a crime scene investigator who gains super-human speed, which he uses to fight criminals, including others who have also gained superhuman abilities.</item>
-        <item>Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss for HBO. It is an adaptation of A Song of Ice and Fire, George R. R. Martins series of fantasy novels, the first of which is A Game of Thrones. The show was both produced and filmed in Belfast and elsewhere in the United Kingdom. Filming locations also included Canada, Croatia, Iceland, Malta, Morocco, and Spain.[1] The series premiered on HBO in the United States on April 17, 2011, and concluded on May 19, 2019, with 73 episodes broadcast over eight seasons.</item>
-        <item>Gotham is an American crime drama television series developed by Bruno Heller, produced by Warner Bros. Television and based on characters published by DC Comics and appearing in the Batman franchise, primarily those of James Gordon and Bruce Wayne. The series premiered on Fox on September 22, 2014, and concluded on April 25, 2019. The series stars Ben McKenzie as Jim Gordon and David Mazouz as Bruce Wayne.</item>
-        <item>Grey Anatomy is an American medical drama television series that premiered on March 27, 2005, on the American Broadcasting Company (ABC) as a mid-season replacement. The fictional series focuses on the lives of surgical interns, residents, and attending doctors, as they develop into seasoned doctors while trying to maintain personal lives and relationships. </item>
-        <item>Hanna is a 2011 American action thriller film directed by Joe Wright. The film stars Saoirse Ronan as the title character, a girl raised in the wilderness of northern Finland by her father, an ex-CIA operative (Eric Bana), who trains her as an assassin. Cate Blanchett portrays a senior CIA agent who tries to track down and eliminate the girl and her father. The soundtrack was written by The Chemical Brothers.</item>
-        <item>The first season of the American web television series Iron Fist, which is based on the Marvel Comics character of the same name, follows Danny Rand as he returns to New York City after being presumed dead for 15 years and must choose between his familys legacy and his duties as the Iron Fist. It is set in the Marvel Cinematic Universe (MCU), sharing continuity with the films and other television series of the franchise.</item>
-    </string-array>
-
-    <string-array name="data_rate_tv">
-        <item>6/10</item>
-        <item>8/10</item>
-        <item>7/10</item>
-        <item>8/10</item>
-        <item>9/10</item>
-        <item>5/10</item>
-        <item>7/10</item>
-        <item>7/10</item>
-        <item>7/10</item>
-        <item>7/10</item>
-        <item>9/10</item>
-    </string-array>
-
-    <string-array name="data_restriction_tv">
-        <item>18+</item>
-        <item>18+</item>
-        <item>13+</item>
-        <item>13+</item>
-        <item>18+</item>
-        <item>18+</item>
-        <item>17+</item>
-        <item>18+</item>
-        <item>18+</item>
-        <item>13+</item>
-        <item>18+</item>
-    </string-array>
-
-    <string-array name="data_price_tv">
-        <item>Rp25.000/Month</item>
-        <item>Rp35.000/Month</item>
-        <item>Rp25.000/Month</item>
-        <item>Rp19.000/Month</item>
-        <item>Rp89.000/Month</item>
-        <item>Rp15.000/Month</item>
-        <item>Rp35.000/Month</item>
-        <item>Rp20.000/Month</item>
-        <item>Rp43.000/Month</item>
-        <item>Rp64.000/Month</item>
-        <item>Rp70.000/Month</item>
-    </string-array>
-
-    <string-array name="data_is_promo_tv">
-        <item>true</item>
-        <item>true</item>
-        <item>true</item>
-        <item>false</item>
-        <item>true</item>
-        <item>false</item>
-        <item>true</item>
-        <item>false</item>
-        <item>false</item>
-        <item>false</item>
-        <item>true</item>
-    </string-array>
 
 </resources>

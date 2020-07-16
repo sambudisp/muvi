@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialKeyguardLayout="@layout/fav_widget"
+    android:initialLayout="@layout/fav_widget"
+    android:minWidth="256dp"
+    android:minHeight="128dp"
+    android:previewImage="@drawable/ic_favorite_fill"
+    android:updatePeriodMillis="0"
+    android:widgetCategory="home_screen" />
